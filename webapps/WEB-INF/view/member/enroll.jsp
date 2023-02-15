@@ -15,6 +15,8 @@
 		<h1>회원가입</h1>
 		<form action="<%=request.getContextPath()%>/enroll" method="post">
 			id:<input type="text" name="id"> 
+			<button type="button">중복 id확인</button>
+			<span></span>
 			<br>
 			pw:<input type="password" name="passwd">
 			<br>

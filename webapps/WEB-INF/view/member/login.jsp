@@ -11,7 +11,7 @@
 	<jsp:include page="/WEB-INF/view/header.jsp"/>
 	
 	<section>
-		<form action="loginurl" method="post">
+		<form action="login" method="post">
 			id:<input type="text" name="id"> 
 			<br>
 			pw:<input type="password" name="passwd">
