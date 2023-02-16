@@ -22,8 +22,8 @@ package kh.member.model.vo;
 public class MemberVo {
 	
 	private String id;
-	private String passwd;
 	private String name;
+	private String passwd;
 	private String email;
 	public String getId() {
 		return id;
@@ -50,12 +50,12 @@ public class MemberVo {
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
+	
 	@Override
 	public String toString() {
-		return "MemberVo [id=" + id + ", passwd=" + passwd + ", name=" + name + ", email=" + email + "]";
+		return "MemberVo [id=" + id + ", name=" + name + ", passwd=" + passwd + ", email=" + email + "]";
 	}
-	
-		
+
 	
 	
 	

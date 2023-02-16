@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		System.out.println("login Post");
+		System.out.println("");
 		// login.jsp 데이터 가ㅕ오기?
 		MemberVo vo = new MemberVo();
 		vo.setId(request.getParameter("id"));
@@ -44,8 +44,7 @@ public class LoginController extends HttpServlet {
 //		String id = request.getParameter("id");
 //		String passwd = request.getParameter("passwd");
 //	 
-		//2.데이터를 Vo에 채워서 이동해준다(DB 다녀오기)
-		
+		//2.데이터를 Vo에 채워서 이동해준다
 		MemberVo result = new MemberService().login(vo);
 		if(result != null) {
 			System.out.println("login sucess!!");
@@ -54,12 +53,6 @@ public class LoginController extends HttpServlet {
 			System.out.println("login faile!!");
 		
 		}
-
-		//3. 페이지이동 및 데이터 전달(셋 중 하나로 무조건 메소드 끝내야함. 무조건 있어야 한다)
-		//3-1 response.sendRedirect(request.getContextPath()+"url");
-		//3-3 request.getAttribute("name1", "값");
-		//3-2 request.getRequestDispatcher("xxx.jsp").forward(request, response); 페이지없이 데이터만이동
-		//out.println("값"); out.flush(); out.close();
 		response.sendRedirect(request.getContextPath()+"/");
 
 	}

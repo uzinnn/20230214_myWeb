@@ -15,7 +15,7 @@
 		<h1>회원가입</h1>
 		<form action="<%=request.getContextPath()%>/enroll" method="post">
 			id:<input type="text" name="id"> 
-			<button type="button" id="dupId">중복 id확인</button>
+			<button type="button">중복 id확인</button>
 			<span></span>
 			<br>
 			pw:<input type="password" name="passwd">
@@ -28,30 +28,5 @@
 	
 		</form>
 	</section>
-	
-	<script>
-	$("#dupId").click(checkDupId);
-	function checkDupId(){
-		$.ajax({ 
-			url: "<%=request.getContextPath()%>/dupid.lo"
-			, type:"post"
-			, async:false
-			, data: {id: $("input").first().val() }
-			, success: function(result){
-				console.log(result);
-				if(result == 1){
-					$("#dupId").next().html("중복아이디가 있습니다. 다시 입력해주세요.");
-					$("#dupId").next().css("color", "red");
-				} else {
-					$("#dupId").next().html("사용가능아이디입니다.");
-					$("#dupId").next().css("color", "blue");
-				}
-			}
-			, error: function(request, status, error){
-				alert(request.status);
-			}
-		});	
-	}
-</script>
 </body>
 </html>
