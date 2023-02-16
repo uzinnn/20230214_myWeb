@@ -1,4 +1,4 @@
-package kh.home.controller;
+package kh.member.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class HomeController
+ * Servlet implementation class LogoutController
  */
-@WebServlet({"/","/main","/home","/index"})
-public class HomeController extends HttpServlet {
+@WebServlet("/logout")
+public class LogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomeController() {
+    public LogoutController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,7 +26,13 @@ public class HomeController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/view/index.jsp").forward(request, response);
+		
+		System.out.println("여기 로그아웃!!!!!!");
+		request.getSession().invalidate();
+		response.sendRedirect(request.getContextPath()+"/");
+	
 	}
+
+
 
 }

@@ -14,14 +14,12 @@ public class MemberService {
 		close(conn);
 		return result;
 	}
-	
 	//로그인 
 	public MemberVo login(MemberVo vo) {
 		MemberVo result = null;
 		Connection conn = getConnection();
 		result = new MemberDao().login(conn,vo);
 		close(conn);
-		
 		return result;
 	}
 	
