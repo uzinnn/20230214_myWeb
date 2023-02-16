@@ -13,13 +13,13 @@
 	<jsp:include page="/WEB-INF/view/header.jsp"/>
 	
 	<c:if test="${not empty lgnss}">
-	<button class="btn myinfo">내정보보기</button>
+		<button class="btn myinfo">내정보보기</button>
 	</c:if>
 	
 	<script>
 	$(".btn.login").on("click",handlerClickBtnLogin());
-	$(".btn.login").on("click",handlerClickBtnLogout());
-	$(".btn.login").on("click",handlerClickBtnMyinfo());
+	$(".btn.logout").on("click",handlerClickBtnLogout());
+	$(".btn.myinfo").on("click",handlerClickBtnMyinfo());
 	
 	function handlerClickBtnLogin(){
 		console.log("btnLogin 눌림");
@@ -27,7 +27,8 @@
 	}
 	  
 	function handlerClickBtnLogout(){
-		console.log("btnLogin 눌림");
+		console.log("btnLogout 눌림");
+		location.href="<%=request.getContextPath()%>/logout";
 	}
 	
 	  
@@ -36,6 +37,7 @@
 		location.href="<%=request.getContextPath()%>/myinfo";
 	}
 	
+	//세션에 아이디 저장되면 데이터 들고 다니지않아도된다..?
 	</script>
 	
 	

@@ -13,8 +13,8 @@ public class MemberDao {
 	public MemberVo myInfo(Connection conn,String id) {
 		MemberVo result = null;
 		
-		String sql = "select ID, NAME, EMAIL from text_member";
-		sql += "where ID=? ";
+		String sql = "select ID, NAME, EMAIL from test_member ";
+		sql += " where id=? ";
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -36,32 +36,18 @@ public class MemberDao {
 			close(rs);
 			close(pstmt);
 		}
-		
-		
-		
-		
-		
-		
+		System.out.println("result");	
 		return result;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	//로그인
 	//return값은 자료값이 하나
 	public MemberVo login(Connection conn,MemberVo vo) {
 		MemberVo result = null;
 		
-		String sql = "select ID, NAME, EMAIL from text_member";
-		sql += "where ID=? and PASSWD=?";
+	String sql = "select ID, NAME, EMAIL from test_member ";
+		sql += " where id=? and PASSWD=?";
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -70,28 +56,27 @@ public class MemberDao {
 			pstmt.setString(1, vo.getId());
 			pstmt.setString(2, vo.getPasswd());
 			rs = pstmt.executeQuery();
-			//단일행 결과물
-			if(rs.next()) {
+		//단일행 결과물
+		if(rs.next()) {
 				result = new MemberVo();
-				result.setEmail(rs.getString("email")); //컬럼이 이메일인 문자열을 가져와서 membervo를 채워준다
+				result.setEmail(rs.getString("email"));
 				result.setId(rs.getString("id"));
 				result.setName(rs.getString("name"));
 				
 			}
 		}catch(Exception e) {
-		e.printStackTrace();
-		} finally {
+			e.printStackTrace();
+		}finally {
 			close(rs);
 			close(pstmt);
 		}
 		
-		
-		
-		
-		
-		
+		System.out.println(result);
 		return result;
 	}
+	
+	
+	
 	
 	
 	
@@ -106,7 +91,7 @@ public class MemberDao {
 	
 	public int enroll(Connection conn, MemberVo vo) {
 		int result = -1;
-		String query = "insert into Test_Member values";
+		String query = "insert into Test_Member values ";
 		//vo에 작성한 데이터 순서 중요
 		query += "(?,?,?,?)";
 		

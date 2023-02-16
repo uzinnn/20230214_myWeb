@@ -14,13 +14,13 @@ import kh.member.model.vo.MemberVo;
  * Servlet implementation class LoginController
  */
 @WebServlet("/enroll")
-public class EnrollController2 extends HttpServlet {
+public class EnrollController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EnrollController2() {
+    public EnrollController() {
         super();
         // TODO Auto-generated constructor stub
     }
